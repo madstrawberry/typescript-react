@@ -24,16 +24,15 @@ type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>;
 ```typescript
 import * as React from 'react';
 import { connect } from 'react-redux';
-
-// isBla is injected by HOC
-interface IInjectedProps {
-  isBla: boolean;
-}
 ```
 
 # HOC that adds props
 
 ```typescript
+interface IInjectedProps {
+  isBla: boolean;
+}
+
 export function withAddingProps<T extends IInjectedProps>(
   WrappedComponent: React.ComponentType<T>
 ) {
@@ -97,6 +96,10 @@ const UsingConnectedCompWithAdjusted = () => <ConnectCompWithAdjusted hi="hello"
 (node: not 100% due to no prop destructuring!)
 
 ```typescript
+interface IInjectedProps {
+  isBla: boolean;
+}
+
 interface IOwnProps {
   boo: boolean;
 }
@@ -142,6 +145,10 @@ const UsingConnectedCompWithExternalProp = () => <ConnectedCompWithExternalProp 
 # HOC that adds props from Redux-Store
 
 ```typescript
+interface IInjectedProps {
+  isBla: boolean;
+}
+
 interface IReduxStateProps {
   yo: boolean;
 }
